@@ -37,7 +37,7 @@
   ],
   "devDependencies": {
     "@smartlyio/oats-runtime": "^2.0.0",
-    "@types/koa": "2.11.2",
+    "@types/koa": "2.11.3",
     "@types/koa-router": "^7.0.23",
     "@types/lodash": "^4.14.140",
     "@types/node": "^11.11.3",
