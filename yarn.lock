@@ -18,15 +18,15 @@
     esutils "^2.0.2"
     js-tokens "^4.0.0"
 
-"@smartlyio/oats-runtime@2.6.3":
-  version "2.6.3"
-  resolved "https://registry.yarnpkg.com/@smartlyio/oats-runtime/-/oats-runtime-2.6.3.tgz#4ad0568a440261587cd5b1bb49af9b1513cbad4d"
-  integrity sha512-hbBHOf6gxOnQsysw16q9Hdsjbnqn/qpvR6Ylw8zNWZZrYOmyaNYzK+ZCVRCLtOX+z0ibGaXZz0l/UUHwAc0D/Q==
+"@smartlyio/oats-runtime@2.6.6":
+  version "2.6.6"
+  resolved "https://registry.yarnpkg.com/@smartlyio/oats-runtime/-/oats-runtime-2.6.6.tgz#f182f2cc7f3cb3e739b8822e0c0154ea2d56af85"
+  integrity sha512-6JBTwZItGNF1T45aEYtO+qZUZgdT5OwCDIuPbVfQywpF3ZhiyR2suuR3HLU3HShvDHeIDVQTLjel4+kcLIoH6A==
   dependencies:
-    "@smartlyio/safe-navigation" "5.0.1"
-    lodash "4.17.19"
+    "@smartlyio/safe-navigation" "^5.0.1"
+    lodash "^4.17.20"
 
-"@smartlyio/safe-navigation@5.0.1":
+"@smartlyio/safe-navigation@^5.0.1":
   version "5.0.1"
   resolved "https://registry.yarnpkg.com/@smartlyio/safe-navigation/-/safe-navigation-5.0.1.tgz#6d386d888937946859c1a33e8ed7e8dc914d04f1"
   integrity sha512-d3Vs/UcOlZv0Ph6fAId7bJEQ5V1EUtwwi03I6HNT+1pXWnGSRPujHcs75v1c+JFwPyBID7n7PnfUw+ZkKAeOww==
@@ -982,6 +982,11 @@ lodash@^4.17.14, lodash@^4.17.15:
   version "4.17.15"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.15.tgz#b447f6670a0455bbfeedd11392eff330ea097548"
   integrity sha512-8xOcRHvCjnocdS5cpwXQXVzmmh5e5+saE2QGoeQmbKmRS6J3VQppPOIt0MnmE+4xlZoumy0GPG0D0MVIQbNA1A==
+
+lodash@^4.17.20:
+  version "4.17.20"
+  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.20.tgz#b44a9b6297bcb698f1c51a3545a2b3b368d59c52"
+  integrity sha512-PlhdFcillOINfeV7Ni6oF1TAEayyZBoZ8bcshTHqOYJYlrqzRK5hagpagky5o4HfCzzd1TRkXPMFq6cKk9rGmA==
 
 minimatch@^3.0.4:
   version "3.0.4"
