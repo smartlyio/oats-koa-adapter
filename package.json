@@ -12,7 +12,8 @@
     "lint:fix": "eslint . --ext .ts --fix",
     "clean": "rm -rf ./dist && rm -f ./tmp/*.ts",
     "build": "yarn clean && yarn lint && yarn tsc",
-    "prepublish": "yarn build"
+    "prepublish": "yarn build",
+    "render": "ts-node render-docs.ts"
   },
   "repository": {
     "type": "git",
@@ -49,6 +50,7 @@
     "eslint-plugin-jest": "23.20.0",
     "eslint-plugin-prettier": "3.1.4",
     "prettier": "2.2.1",
+    "ts-node": "9.0.0",
     "typescript": "3.9.7"
   }
 }
