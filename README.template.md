@@ -28,6 +28,77 @@ export const router = () => {
 };
 ```
 
+### Defining Types for Request Context
+
+There are two ways to add types to your context, each with their own benefits and drawbacks.
+
+#### Using `any`
+
+This approach uses the default behavior in the library, but uses TypeScript's `any` to force router to work in the bind function.
+
+```ts
+// router.ts
+
+import * as koaAdapter from '@smartlyio/koa-oats-adapter';
+import * as oaserver from '<Your Generated Server>';
+import spec from '<Your Route Definitions>';
+
+interface RequestContext {
+  id: string
+}
+
+export const router = () => {
+  const requestContextCreator = (ctx: any): RequestContext => ctx;
+
+  return koaAdapter.bind<
+    oaserver.EndpointsWithContext<RequestContext>,
+    RequestContext
+  >(oaserver.router as any, spec, requestContextCreator);
+}
+```
+
+#### Configuring Generated Code
+
+This approach injects itself into the default behavior of the generated code, using the `oats-runtime` directly and avoiding the use of `any`.
+
+```ts
+// app.ts
+import * as Koa from 'koa'
+import { Context, State } from './router'
+
+const app = new Koa<State, Context<State>>()
+
+// continue Koa setup...
+```
+
+```ts
+// router.ts
+
+import * as koaAdapter from '@smartlyio/koa-oats-adapter';
+import * as oatsRuntime from "@smartlyio/oats-runtime";
+import * as oaserver from '<Your Generated Server>';
+import spec from '<Your Route Definitions>';
+
+export interface State {
+  id: string
+}
+
+export interface Context<S> {
+  state: S
+}
+
+type Spec = oaserver.EndpointsWithContext<Context<State>>;
+
+export const router = () => {
+  const { createHandlerFactory } = oatsRuntime.server;
+  const requestContextCreator = (ctx: any): Context => ctx;
+
+  const handler = createHandlerFactory<Spec>(oaserver.endpointHandlers);
+  const copyKoaCtxToOatsCtx = (ctx: any): Context<State> => ({ ...ctx });
+
+  return koaAdapter.bind<Spec, Context<State>>(handler, spec, copyKoaCtxToOatsCtx);
+}
+```
 
 [1]: [Oats](https://github.com/smartlyio/oats) is a library that parses OpenAPI specifications and generates client and server code in TypeScript.
 [2]: [Koa](https://koajs.com/) is a web framework for node.js applications.
